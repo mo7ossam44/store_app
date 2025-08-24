@@ -21,7 +21,7 @@ class _ProductCardState extends State<ProductCard> {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) {
-              return UpdateProductPage();
+              return UpdateProductPage(productModel: widget.productModel!);
             },
           ),
         );
