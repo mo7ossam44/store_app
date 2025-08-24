@@ -7,8 +7,8 @@ class GetAllProductService {
       url: 'https://fakestoreapi.com/products',
     );
     List<ProductModel> prodctModelList = [];
-    for (var product in data) {
-      prodctModelList.add(product);
+    for (int i = 0; i < data.length; i++) {
+      prodctModelList.add(ProductModel.fromJson(data[i]));
     }
     return prodctModelList;
   }

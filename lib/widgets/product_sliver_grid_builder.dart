@@ -7,7 +7,7 @@ class ProductsSliverGridBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverPadding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsetsGeometry.symmetric(horizontal: 10, vertical: 30),
       sliver: SliverGridBuilder(),
     );
   }

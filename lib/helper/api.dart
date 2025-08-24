@@ -16,16 +16,16 @@ class Api {
   Future<dynamic> post({
     required String url,
     @required dynamic body,
-    // @required String? token,
+    @required String? token,
   }) async {
-    // Map<String, String> headers = {};
-    // if (token != null) {
-    //   headers.addAll({'Authorization': 'Bearar $token'});
-    // }
+    Map<String, String> headers = {};
+    if (token != null) {
+      headers.addAll({'Authorization': 'Bearar $token'});
+    }
     http.Response response = await http.post(
       Uri.parse(url),
       body: body,
-      // headers: headers,
+      headers: headers,
     );
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
@@ -37,13 +37,13 @@ class Api {
   Future<dynamic> put({
     required String url,
     @required dynamic body,
-    // @required String? token,
+    @required String? token,
   }) async {
     Map<String, String> headers = {};
     headers.addAll({'Content-Type': 'application/x-www-form-urlencoded'});
-    // if (token != null) {
-    //   headers.addAll({'Authorization': 'Bearar $token'});
-    // }
+    if (token != null) {
+      headers.addAll({'Authorization': 'Bearar $token'});
+    }
     http.Response response = await http.post(
       Uri.parse(url),
       body: body,

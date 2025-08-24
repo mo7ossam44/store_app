@@ -1,32 +1,69 @@
-
 import 'package:flutter/material.dart';
+import 'package:store/models/product_model.dart';
 
-class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
+class ProductCard extends StatefulWidget {
+  const ProductCard({super.key, this.productModel});
+
+  final ProductModel? productModel;
+  @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  bool isSelected = false;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
-      alignment: Alignment.bottomCenter,
+      clipBehavior: Clip.none,
       children: [
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 10),
-          // decoration: BoxDecoration(color: Colors.grey.shade300),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('201', style: TextStyle(fontWeight: FontWeight.bold)),
-                  IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
-                ],
-              ),
-            ],
+        Card(
+          elevation: 5,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  widget.productModel!.title.substring(0, 6),
+                  style: TextStyle(color: Colors.grey.shade600, fontSize: 16),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      r'$'
+                      '${widget.productModel!.price}',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                    IconButton(
+                      padding: EdgeInsets.zero,
+                      onPressed: () {
+                        setState(() {
+                          isSelected = !isSelected;
+                        });
+                      },
+                      icon: Icon(
+                        Icons.favorite,
+                        color: isSelected ? Colors.red : Colors.grey.shade500,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
         Positioned(
-          height: 140,
-          child: Image.asset('assets/images/bag.png', height: 150),
+          right: 32,
+          top: -20,
+          child: Image.network(
+            widget.productModel!.image,
+            height: 100,
+            width: 100,
+          ),
         ),
       ],
     );

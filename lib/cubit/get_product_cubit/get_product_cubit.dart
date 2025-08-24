@@ -4,7 +4,7 @@ import 'package:store/models/product_model.dart';
 import 'package:store/services/get_all_product_service.dart';
 
 class GetProductCubit extends Cubit<GetProductState> {
-  GetProductCubit(super.initialState);
+  GetProductCubit() : super(ProductLoading());
 
   List<ProductModel>? listProductCuibit;
 
