@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store/widgets/sliver_grid_builder.dart';
 import 'package:store/cubit/get_product_cubit/get_product_cubit.dart';
 import 'package:store/cubit/get_product_cubit/get_product_state.dart';
-import 'package:store/widgets/sliver_grid_builder.dart';
 
 class ProductsSliverGridBuilder extends StatefulWidget {
   const ProductsSliverGridBuilder({super.key});

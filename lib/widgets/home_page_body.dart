@@ -14,7 +14,6 @@ class HomePageBody extends StatelessWidget {
         child: const CustomScrollView(
           physics: BouncingScrollPhysics(),
           slivers: [
-            // CustomAppBar(),
             ProductsSliverGridBuilder(),
           ],
         ),
