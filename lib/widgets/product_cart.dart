@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store/models/product_model.dart';
+import 'package:store/screens/update_product.dart';
 
 class ProductCard extends StatefulWidget {
   const ProductCard({super.key, this.productModel});
@@ -17,7 +18,13 @@ class _ProductCardState extends State<ProductCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) {
+              return UpdateProductPage();
+            },
+          ),
+        );
       },
       child: Stack(
         clipBehavior: Clip.none,

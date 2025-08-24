@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/widgets/sliver_grid_builder.dart';
+import 'package:store/widgets/grid_view_builder.dart';
 import 'package:store/cubit/get_product_cubit/get_product_cubit.dart';
 import 'package:store/cubit/get_product_cubit/get_product_state.dart';
 
